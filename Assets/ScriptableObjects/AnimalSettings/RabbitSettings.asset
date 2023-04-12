@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a95d531ccb7f84e901b4966a7aa800, type: 3}
+  m_Name: RabbitSettings
+  m_EditorClassIdentifier: 
+  lifeTimeDuration: 0
+  animalName: Rabbit
+  vorousType: 0
+  sleepPeriod: 0
+  feedingPerios: 0
+  matingPeriods: 0
+  socialPeriods: 0
+  incubationPeriods: 0
+  oneTimeJumpDistance: 0.75
+  moveRadius: 5
+  oneJumpHeight: 0.5
+  chasingSpeed: 0
+  MovenmentType: 0

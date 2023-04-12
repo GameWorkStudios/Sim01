@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Plant Setting", menuName = "Plant/PlantSetting")]
-public class PlantSettings : GameAsset
+[CreateAssetMenu(fileName = "New Plant Setting", menuName = "Data Containers/Plant Setting")]
+public class PlantSettings : EntitySettings
 {
     [Header("Plant Settings")]
     [SerializeField] private float plantSaplingDuration;
     [SerializeField] private float plantGrowingDuration;
-    [SerializeField] private float plantLifetimeDuration;
     [SerializeField] private int maxConsumableAmount;
     /// <summary>
     /// This variable is representing fruit creation duration for plant.
@@ -32,12 +31,6 @@ public class PlantSettings : GameAsset
     public float PlantyGrowingDuration{
         get{
             return this.plantGrowingDuration;
-        }
-    }
-
-    public float PlantLifeTimeDuration{
-        get{
-            return this.plantLifetimeDuration;
         }
     }
 

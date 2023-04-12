@@ -11,7 +11,7 @@ public class GrownState : State
 
     public override void StartState(StateMachine machine)
     {
-        this.lifeTimeDuration = machine.PlantStateMachine().PlantSettings.PlantLifeTimeDuration;
+        this.lifeTimeDuration = machine.PlantStateMachine().PlantSettings.LifeTimeDuration;
         this.consumableCreationDuration = machine.PlantStateMachine().PlantSettings.ConsumableCreationDuration;
     }
 

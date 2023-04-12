@@ -37,35 +37,58 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Environment\DayNightMachine\States\EveningState.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\States\DrinkingState.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\States\HungerState.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Enums\MovenmentType.cs" />
-     <Compile Include="Assets\Scripts\Environment\DayNightMachine\Enums\DayNightPhases.cs" />
-     <Compile Include="Assets\Scripts\Environment\DayNightMachine\States\NightState.cs" />
-     <Compile Include="Assets\Scripts\Environment\DayNightMachine\DayNightStateMachine.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\EntityBase\Entity.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\Plant\PlantStateMachine\States\GrowingState.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\Plant\PlantStateMachine\PlantStateMachineCaster.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\Plant\PlantBehaviour.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\Enums\Vorous.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\Enums\Gender.cs" />
-     <Compile Include="Assets\Scripts\Environment\DayNightMachine\States\MorningState.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\Plant\PlantStateMachine\States\GrownState.cs" />
-     <Compile Include="Assets\Scripts\Initializer\PoolManager\Interface\IPoolOperation.cs" />
-     <Compile Include="Assets\Scripts\GlobalTimer\New\TimeController.cs" />
-     <Compile Include="Assets\Scripts\Utilities\StatePattern\BaseState\State.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\Plant\DataContainer\PlantSettings.cs" />
+     <Compile Include="Assets\Scripts\Utilities\GameAssets\RefVariables\References\FloatReference.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\States\MoverBaseState\ProgressState\ProgressState.cs" />
      <Compile Include="Assets\Scripts\Initializer\Initializer.cs" />
      <Compile Include="Assets\Scripts\GlobalTimer\Old\GlobalTimer.cs" />
+     <Compile Include="Assets\Scripts\Environment\DayNightMachine\Enums\DayNightPhases.cs" />
+     <Compile Include="Assets\Scripts\CharacterJumper.cs" />
      <Compile Include="Assets\Scripts\Environment\DayNightMachine\States\AfternoonState.cs" />
-     <Compile Include="Assets\Scripts\Utilities\GameAsset\GameAsset.cs" />
+     <Compile Include="Assets\Scripts\Environment\DayNightMachine\States\NightState.cs" />
+     <Compile Include="Assets\Scripts\Environment\DayNightMachine\DayNightStateMachine.cs" />
+     <Compile Include="Assets\Scripts\Utilities\GameAssets\BaseGameAsset\GameAsset.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\EntityBase\Entity.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Plant\PlantPropagationManager.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\DataContainers\AnimalSettings.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\States\MatingState.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Plant\PlantStateMachine\States\GrowingState.cs" />
      <Compile Include="Assets\Scripts\Initializer\PoolManager\PoolSettings\PoolSettings.cs" />
      <Compile Include="Assets\Scripts\Utilities\StatePattern\BaseMachine\StateMachine.cs" />
-     <Compile Include="Assets\Scripts\Behaviour\AnimalBase\Animal.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\States\IdleState.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\Animal.cs" />
      <Compile Include="Assets\Scripts\Environment\DayNightMachine\DayNightManager.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\EntityBase\DataContainers\EntitySettings.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Plant\PlantBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Plant\PlantStateMachine\PlantStateMachineCaster.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Enums\Vorous.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\States\ThirstState.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Enums\Gender.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Plant\PlantStateMachine\PlantStateMachine.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\States\MateState.cs" />
      <Compile Include="Assets\Scripts\Utilities\SingletonBase\MonoSingleton.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\States\SleepingState.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\States\MoverBaseState\MoverState.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\States\FeedingState.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Plant\PlantStateMachine\States\SaplingState.cs" />
+     <Compile Include="Assets\Scripts\Environment\DayNightMachine\States\MorningState.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Plant\PlantStateMachine\States\GrownState.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalBehaviour.cs" />
      <Compile Include="Assets\Scripts\Initializer\PoolManager\PoolManager.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\AnimalStateMachine.cs" />
+     <Compile Include="Assets\Scripts\Initializer\PoolManager\Interface\IPoolOperation.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\States\ChasingState.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\AnimalStateMachineCaster.cs" />
+     <Compile Include="Assets\Scripts\GlobalTimer\New\TimeController.cs" />
+     <Compile Include="Assets\Scripts\Utilities\GameAssets\RefVariables\Variables\FloatVariable.cs" />
+     <Compile Include="Assets\Scripts\CharacterMovement.cs" />
+     <Compile Include="Assets\Scripts\Utilities\StatePattern\BaseState\State.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Plant\DataContainer\PlantSettings.cs" />
+     <None Include="Assets\ScriptTemplates\NewCSharpClass.cs.txt" />
+     <None Include="Assets\ScriptTemplates\CustomState.cs.txt" />
+     <None Include="Assets\ScriptTemplates\NewInterface.cs.txt" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.4f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -323,12 +346,6 @@
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Rocks">
         <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-        <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-        <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.4f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -708,9 +725,6 @@
     <Reference Include="System.Xml.Serialization">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.4f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-        <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
@@ -732,14 +746,8 @@
     <Reference Include="Unity.Timeline">
         <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Core.Editor">
-        <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro">
         <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State.Editor">
-        <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Editor">
         <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
@@ -750,17 +758,8 @@
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
         <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-        <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-        <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-        <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
         <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
@@ -771,20 +770,11 @@
     <Reference Include="UnityEngine.UI">
         <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-        <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Mathematics">
         <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
         <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core">
-        <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core.Analytics">
-        <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst">
         <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
@@ -792,17 +782,11 @@
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
         <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-        <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core.Environments">
-        <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+        <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
         <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-        <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
         <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
@@ -812,9 +796,6 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
         <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-        <HintPath>C:\Users\Emre\Unity Projects\NatureSim01\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
