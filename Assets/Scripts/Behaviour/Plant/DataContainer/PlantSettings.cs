@@ -22,6 +22,8 @@ public class PlantSettings : EntitySettings
     /// <value></value>
     [SerializeField] private float propagationDuration;
 
+    [SerializeField] private float consumeHardness;
+
     public float PlantSaplingDuration{
         get{
             return this.plantSaplingDuration;
@@ -55,6 +57,12 @@ public class PlantSettings : EntitySettings
     public float PropagationDuration{
         get{
             return this.propagationDuration;
+        }
+    }
+
+    public float ConsumeHardness{
+        get{
+            return this.consumeHardness;
         }
     }
 }

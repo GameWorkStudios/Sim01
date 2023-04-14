@@ -7,20 +7,23 @@ using UnityEngine;
  /// </summary>
 public class IdleState : MoverState
 {
-
     private float randomPositionRadius;
     private AnimalStateMachine animalStateMachine;
 
     public override void StartState(StateMachine machine)
-    {
+    {        
+        Debug.LogWarning("IDLE STATE");
         base.tr = machine.transform;
         this.animalStateMachine = machine.AnimalStateMachine();
+        this.animalStateMachine.SetIdentifier(StateIdentifier.IDLE);
         this.randomPositionRadius = this.animalStateMachine.GetAnimalSettings.MoveRadius;
-        base.GroundLayerMask = this.animalStateMachine.GroundLayerMask;
-        base.OneTimeJumpDistance = this.animalStateMachine.GetAnimalSettings.OneTimeJumpDistance;
-        base.JumpHeight = this.animalStateMachine.GetAnimalSettings.OneJumpHeight;
-        base.ObjectVertialLength = this.animalStateMachine.ObjectVerticalLength;
-        base.onDestinationReached += DestinationReached;
+        initializeMoveSettings(
+                this.animalStateMachine.GroundLayerMask,
+                this.animalStateMachine.GetAnimalSettings.OneTimeJumpDistance,
+                this.animalStateMachine.GetAnimalSettings.OneJumpHeight,
+                this.animalStateMachine.ObjectVerticalLength,
+                this.DestinationReached
+            );
         FindRandomPosition();        
     }
 
@@ -34,7 +37,17 @@ public class IdleState : MoverState
 
     public override void LeaveState(StateMachine machine)
     {
+        base.onDestinationReached -= DestinationReached;
         base.StopMoveOperation();
+    }
+
+    public override void initializeMoveSettings(LayerMask groundLayerMask, float oneTimeJumpDistance, float jumpHeight, float objectVerticalLength, System.Action OnDestinationReached = null)
+    {
+        base.GroundLayerMask = groundLayerMask;
+        base.OneTimeJumpDistance = oneTimeJumpDistance;
+        base.JumpHeight = jumpHeight;
+        base.ObjectVertialLength = objectVerticalLength;
+        base.onDestinationReached += OnDestinationReached;
     }
 
     private Vector3 FindRandomPosition(){
@@ -52,7 +65,8 @@ public class IdleState : MoverState
 
     private void DestinationReached(){
         FindRandomPosition();
-        Debug.Log("Event triggered!");
     }
+
+
 }
 

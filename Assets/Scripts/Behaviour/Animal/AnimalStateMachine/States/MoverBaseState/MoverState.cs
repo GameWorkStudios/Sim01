@@ -16,7 +16,7 @@ public abstract class MoverState : State
     private float elapsedTime = 0;
     private float timeMultiplier = 1f;
     private int steps;
-    private int count = 0;
+    protected int count = 0;
     private Vector3 temp;
     private List<CurvePoints> curvePoints;
     #endregion CurveSettings
@@ -31,6 +31,9 @@ public abstract class MoverState : State
     private float objectVertialLength;
     #endregion MovenmentSettings
     #region Setters    
+
+
+    public bool debug = false;
 
     protected event Action onDestinationReached;
 
@@ -58,6 +61,8 @@ public abstract class MoverState : State
         }
     }
     #endregion Setters
+
+    public abstract void initializeMoveSettings(LayerMask groundLayerMask, float oneTimeJumpDistance, float jumpHeight, float objectVerticalLength, Action OnDestinationReached);
 
     public override void UpdateState(StateMachine machine)
     {
@@ -128,8 +133,11 @@ public abstract class MoverState : State
             //Calculate Curve Control Points
             foreach(Vector3 position in points){                
                 //FOR DEBUG!
-                //GameObject tt = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-                //tt.transform.position = position;
+                if(debug){
+                    GameObject tt = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+                    tt.transform.position = position;
+                    Debug.LogWarning(targetPosition);
+                }                
                 if(temp != null){
                     Vector3 midOfPoints = (temp + position) * 0.5f;
                     midOfPoints.y += jumpHeight; // Note : düzeltilecek!
@@ -141,6 +149,11 @@ public abstract class MoverState : State
                     curvePoints.Add(tempCurveStruct);
                 }
                 temp = position;
+            }
+            if(Vector3.Distance(targetPosition, points[points.Count-1]) > 1f){ // TODO : Closing maneuver needed!
+                Vector3 tmp = (targetPosition + points[points.Count-1]) * 0.5f;
+                YvalueCorrection(tmp);
+                points.Add(tmp);
             }
             curvePoints.RemoveAt(0);
         }else{

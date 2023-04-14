@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class PlantBehaviour : PlantStateMachine, IPoolOperation
 {
-    [SerializeField] private float nutrient = 0;
+    [SerializeField] private int nutrient = 0;
     [SerializeField] private float ticknessOfSpawnArea;
     [SerializeField] private LayerMask spawnObjectLayer;
     private int maxConsumableAmount; 
@@ -16,6 +16,27 @@ public class PlantBehaviour : PlantStateMachine, IPoolOperation
     private float elapsedTime = 0;
 
     private Transform tr;
+    private bool isSapling = true;
+
+    private bool isConsuming = false;
+
+    public bool IsSapling{
+        get{
+            return this.isSapling;
+        }
+    }
+
+    public float Nutrient{
+        get{
+            return this.nutrient;
+        }
+    }
+
+    public float ConsumeHardness{
+        get{
+            return base.PlantSettings.ConsumeHardness;
+        }
+    } 
 
     protected override void Start()
     {
@@ -29,7 +50,11 @@ public class PlantBehaviour : PlantStateMachine, IPoolOperation
     protected override void Update()
     {
         base.Update();
-        this.DropFruitAndCreateSapling();
+        if(this.isConsuming){
+            
+        }else{
+            this.DropFruitAndCreateSapling();
+        }
     }    
 
     /// <summary>
@@ -37,6 +62,7 @@ public class PlantBehaviour : PlantStateMachine, IPoolOperation
     /// Related states will access this function and increase the nutrient count.
     /// </summary>
     public override void CreateNutrient(){
+        isSapling = false;
         if(this.nutrient == 0 || this.nutrient <= this.maxConsumableAmount){
             nutrient++;
         }
@@ -80,6 +106,30 @@ public class PlantBehaviour : PlantStateMachine, IPoolOperation
          return pos;
      }
 
+    public void StartConsume()
+    {
+        this.isConsuming = true;
+        base.ChangeState(new BeingConsumedState(base.currentState)); // NOTE : Go to the BeingConsumedState with current state.
+    }
+
+    /// <summary>
+    /// When this function triggered one of nutrient removed and returned current nutrient count to animal.
+    /// </summary>
+    public void Consume(){
+        Debug.Log("CONSUMED!");
+        if(nutrient > 0){
+            nutrient--;
+        }else{
+            nutrient = 0; // This is just control point. we dont want to go negative points.
+        }
+    }
+
+    public void ConsumeFinished(){
+        this.isConsuming = false;
+    }
+
+
+
     public void Pooled()
     {
 
@@ -88,4 +138,5 @@ public class PlantBehaviour : PlantStateMachine, IPoolOperation
     public void UnPooled()
     {
     }
+
 }

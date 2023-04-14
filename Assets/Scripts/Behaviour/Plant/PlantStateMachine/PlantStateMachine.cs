@@ -28,9 +28,10 @@ public class PlantStateMachine : Entity
     #endregion Getters
 
     #region States
-    public SaplingState saplingState    = new SaplingState();
-    public GrowingState growingState    = new GrowingState();
-    public GrownState grownState        = new GrownState();
+    public SaplingState saplingState                = new SaplingState();
+    public GrowingState growingState                = new GrowingState();
+    public GrownState grownState                    = new GrownState();
+    public BeingConsumedState beingConsumedState; // -> This state have constructor method.
     #endregion States
 
     protected virtual void Start()

@@ -1,0 +1,25 @@
+using System;
+using UnityEngine;
+///<Summary> 
+/// TODO : Change the summary text.
+/// </Summary>
+///<see cref="GameEvent"/>
+[CreateAssetMenu(fileName = "New#SCRIPTNAME#", menuName = "GameAssets/GameEvents/#SCRIPTNAME#")]
+public class #SCRIPTNAME#: GameEvent<###>
+{
+    public override void AddListener(Action<###> action)
+    {
+        base.gameEvent += action;
+    }
+
+    public override void RemoveListener(Action<###> action)
+    {
+        base.gameEvent -= action;
+    }
+
+    public override void Raise(### value)
+    {
+        base.gameEvent?.Invoke(value);
+    }
+
+}

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa1d4b8628ab2428cb459351a49ded, type: 3}
   m_Name: PlantSettings
   m_EditorClassIdentifier: 
-  lifeTimeDuration: 20
-  plantSaplingDuration: 5
-  plantGrowingDuration: 10
+  lifeTimeDuration: 250
+  plantSaplingDuration: 10
+  plantGrowingDuration: 50
   maxConsumableAmount: 10
   consumableCreationDuration: 1
   propagationRadius: 5
   propagationDuration: 7
+  consumeHardness: 2

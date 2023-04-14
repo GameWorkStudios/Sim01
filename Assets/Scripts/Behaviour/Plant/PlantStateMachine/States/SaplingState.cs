@@ -24,6 +24,6 @@ public class SaplingState : State
     public override void LeaveState(StateMachine machine)
     {
         machine.PlantStateMachine().SaplingObject.SetActive(false);
-        machine.PlantStateMachine().PlantObject.SetActive(true);
+        machine.PlantStateMachine().PlantObject.SetActive(true);        
     }
 }

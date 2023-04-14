@@ -12,15 +12,16 @@ public class AnimalStateMachine : Animal
     #region States
     public IdleState idleState          = new IdleState();
     public ThirstState thirstState      = new ThirstState();
-    public DrinkingState drinkingState  = new DrinkingState();
+    public DrinkingState drinkingState = new DrinkingState();
     public HungerState hungerState      = new HungerState();
-    public FeedingState feedingState    = new FeedingState();
+    public FeedingState feedingState; // -> this state has a constructor.
     public ChasingState chasingState    = new ChasingState();
     public MateState mateState          = new MateState();
     public MatingState matingState      = new MatingState();
     #endregion States
 
     protected Transform tr;
+    protected StateIdentifier stateIdentifier;
 
     #region Getters
     public Transform Tr{
@@ -67,36 +68,44 @@ public class AnimalStateMachine : Animal
         currentState.StartState(this);
     }
 
+    public void SetIdentifier(StateIdentifier stateIdentifier){
+        this.stateIdentifier = stateIdentifier;
+    }
+
     public override void Die()
     {
 
     }
 
-    protected override void Sleep()
+    #region PolyMorphismFunctions
+    public override void Drink()
     {
+        Debug.Log("This function must override!");
     }
 
-    protected override void Feed()
+    public override void Feed()
     {
+        Debug.Log("This function must override!");
     }
 
-    protected override void FindFood()
+    public override void Sleep()
     {
+        Debug.Log("This function must override!");
     }
 
-    protected override void Mate()
+    public override void Mate()
     {
-    }
-
-    protected override void FindPartner()
-    {
+        Debug.Log("This function must override!");
     }
 
     protected override void Chase()
     {
+        Debug.Log("This function must override!");
     }
 
     protected override void Escape()
     {
+        Debug.Log("This function must override!");
     }
+    #endregion PolyMorphismFunctions
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Animal Settings", menuName = "Data Containers/Animal Setting")]
@@ -9,10 +7,13 @@ public class AnimalSettings : EntitySettings
     [Header("Animal Settings")]
     [SerializeField] private string animalName;
     [SerializeField] private Vorous vorousType;
-    [SerializeField] private float sleepPeriod;
-    [SerializeField] private float feedingPerios;
-    [SerializeField] private float matingPeriods;
-    [SerializeField] private float socialPeriods;
+    //--
+    [SerializeField] private float tiredPeriod; // Unit: Min
+    [SerializeField] private float thirstPeriod; // Unit: Min
+    [SerializeField] private float feedingPerios; // Unit: Min
+    [SerializeField] private float matingPeriods; // Unit: Min
+    [SerializeField] private float socialPeriods; // Unit: Min
+    //--
     [SerializeField] private float incubationPeriods = 0; // NOTE : what happens if gener male?
     #endregion AnimalSpecs
 
@@ -42,5 +43,36 @@ public class AnimalSettings : EntitySettings
             return this.oneJumpHeight;
         }
     }
+
+    public float TiredPeriod{
+        get{
+            return this.tiredPeriod;
+        }
+    }
+
+    public float ThirstPeriod{
+        get{
+            return this.thirstPeriod;
+        }
+    }
+
+    public float MatingPeriods{
+        get{
+            return this.matingPeriods;
+        }
+    }
+
+    public float FeedingPerios{
+        get{
+            return this.feedingPerios;
+        }
+    }
+
+    public Vorous VorousType{
+        get{
+            return this.vorousType;
+        }
+    }
+
 
 }
