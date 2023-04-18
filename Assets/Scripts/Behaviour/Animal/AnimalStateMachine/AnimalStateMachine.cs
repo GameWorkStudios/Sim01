@@ -16,8 +16,11 @@ public class AnimalStateMachine : Animal
     public HungerState hungerState      = new HungerState();
     public FeedingState feedingState; // -> this state has a constructor.
     public ChasingState chasingState    = new ChasingState();
+
+    // TODO : NOTE Can we seperate it ?
     public MateState mateState          = new MateState();
     public MatingState matingState      = new MatingState();
+    public MatingCallState matingCallState = new MatingCallState(); // this state using only female animals.
     #endregion States
 
     protected Transform tr;
@@ -46,8 +49,9 @@ public class AnimalStateMachine : Animal
     }
     #endregion Getters
 
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
         this.tr = transform;
         currentState = idleState;
         currentState.StartState(this);

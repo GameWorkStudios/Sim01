@@ -51,7 +51,11 @@ public class PlantBehaviour : PlantStateMachine, IPoolOperation
     {
         base.Update();
         if(this.isConsuming){
-            
+            if(this.nutrient == 0){
+                Debug.Log("There is no remained nutrient");
+                ConsumeFinished();
+                gameObject.SetActive(false);
+            }
         }else{
             this.DropFruitAndCreateSapling();
         }
@@ -116,10 +120,11 @@ public class PlantBehaviour : PlantStateMachine, IPoolOperation
     /// When this function triggered one of nutrient removed and returned current nutrient count to animal.
     /// </summary>
     public void Consume(){
-        Debug.Log("CONSUMED!");
         if(nutrient > 0){
             nutrient--;
         }else{
+            gameObject.SetActive(false);
+            ConsumeFinished();
             nutrient = 0; // This is just control point. we dont want to go negative points.
         }
     }
@@ -128,6 +133,11 @@ public class PlantBehaviour : PlantStateMachine, IPoolOperation
         this.isConsuming = false;
     }
 
+    private void ResetPlant(){
+        nutrient = 0;
+        ConsumeFinished();
+        base.ChangeState(base.saplingState);
+    }
 
 
     public void Pooled()
@@ -137,6 +147,7 @@ public class PlantBehaviour : PlantStateMachine, IPoolOperation
 
     public void UnPooled()
     {
+        ResetPlant();
     }
 
 }

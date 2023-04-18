@@ -10,6 +10,7 @@ public enum StateIdentifier
     DRINKING,
     MATE,
     MATING,
+    MATINGCALL,
     CHASING,
     UNIDENTIFIED
 }

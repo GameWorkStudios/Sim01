@@ -6,6 +6,7 @@ public class AnimalSettings : EntitySettings
     #region AnimalSpecs
     [Header("Animal Settings")]
     [SerializeField] private string animalName;
+    [SerializeField] private AnimalTypes animalType;
     [SerializeField] private Vorous vorousType;
     //--
     [SerializeField] private float tiredPeriod; // Unit: Min
@@ -71,6 +72,12 @@ public class AnimalSettings : EntitySettings
     public Vorous VorousType{
         get{
             return this.vorousType;
+        }
+    }
+
+    public AnimalTypes AnimalType{
+        get{
+            return this.animalType;
         }
     }
 

@@ -37,8 +37,19 @@ public class HungerState : MoverState
     public override void UpdateState(StateMachine machine)
     {
         base.UpdateState(machine);
-        if(Vector3.Distance(this.tr.position, base.targetPosition) < 0.2f){
-            this.animalStateMachine.ChangeState(new FeedingState(this.selectedPlantForEat));
+        if(selectedPlantForEat == null || !selectedPlantForEat.gameObject.activeInHierarchy){
+            StopMoveOperation();            
+            FindNearestFood();
+            return;
+        }
+        if (selectedPlantForEat.gameObject.activeInHierarchy){ // TODO: some times this line is returning null!
+            if(Vector3.Distance(this.tr.position, base.targetPosition) < 0.2f){
+                this.animalStateMachine.ChangeState(new FeedingState(this.selectedPlantForEat));
+            }
+        }else{
+            // TODO : Test here.
+            base.StopMoveOperation();
+            this.FindNearestFood();   
         }
     }
 

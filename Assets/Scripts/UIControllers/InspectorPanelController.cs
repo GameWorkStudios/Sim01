@@ -15,6 +15,7 @@ public class InspectorPanelController : MonoSingleton<InspectorPanelController>
     [Header("Progress Bars and TextFields")]
     [SerializeField] private TextMeshProUGUI nameTextField;
     [SerializeField] private TextMeshProUGUI genderTextField;
+    [SerializeField] private TextMeshProUGUI currentStateTextField;
     [SerializeField] private Image tirednessProgressBar;
     [SerializeField] private Image hungerProgressBar;
     [SerializeField] private Image thirstProgressBar;
@@ -35,7 +36,10 @@ public class InspectorPanelController : MonoSingleton<InspectorPanelController>
     }
 
     private void AnimalProgressInformationGathered(AnimalProgressInformation progressInformation){ 
-        ResetProgressBars();       
+        ResetProgressBars();      
+        nameTextField.text = progressInformation.animalName;
+        genderTextField.text = progressInformation.animalGener; 
+        currentStateTextField.text = progressInformation.currentState;
         tirednessProgressBar.fillAmount = progressInformation.tirednessProgress;
         hungerProgressBar.fillAmount = progressInformation.hungerProgress;
         thirstProgressBar.fillAmount = progressInformation.thirstProgress;

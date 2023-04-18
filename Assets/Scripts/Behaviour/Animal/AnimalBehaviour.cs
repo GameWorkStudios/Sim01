@@ -28,8 +28,8 @@ public class AnimalBehaviour : AnimalStateMachine
 
     #region ProgressMultiplier
     [Header("Progress Multiplier")]
-    [SerializeField] [Range(1f,10f)] private float hungerMultiplier = 1f;
-    [SerializeField] [Range(1f,10f)] private float thirstMultiplier = 1f;
+    [SerializeField] [Range(0.1f,10f)] private float hungerMultiplier = 1f;
+    [SerializeField] [Range(0.1f,10f)] private float thirstMultiplier = 1f;
     [SerializeField] [Range(1f,10f)] private float mateMultiplier = 1f;
     [SerializeField] [Range(1f,10f)] private float tirednessMultiplier = 1f;    
     #endregion ProgressMultiplier    
@@ -87,7 +87,12 @@ public class AnimalBehaviour : AnimalStateMachine
     private void ChooseNextState(){
         bool switchable = base.stateIdentifier != StateIdentifier.EATING && base.stateIdentifier != StateIdentifier.DRINKING && base.stateIdentifier != StateIdentifier.MATING && base.stateIdentifier != StateIdentifier.CHASING;
         if(switchable){
-            if(thirstProgress >= hungerProgress){
+            if((mateProgress > Random.Range(0.6f, 0.75f)) && (hungerProgress < 0.4f) && (thirstProgress < 0.4f)){
+                // Mate!                    
+                if(base.stateIdentifier != StateIdentifier.MATE){
+                    base.ChangeState(base.mateState);
+                }
+            }else if(thirstProgress >= hungerProgress){
                 if(thirstProgress > Random.Range(0.5f, 0.6f)){
                     // SU İÇ!                    
                     if(base.stateIdentifier != StateIdentifier.THIRST){
@@ -101,11 +106,6 @@ public class AnimalBehaviour : AnimalStateMachine
                         base.ChangeState(base.hungerState);
                     }                    
                 }
-            }else{
-                if(mateProgress > Random.Range(0.6f, 0.75f)){
-                    // Seviş!
-                    Debug.Log("MATE");
-                }
             }
         }
     }
@@ -113,7 +113,6 @@ public class AnimalBehaviour : AnimalStateMachine
     public override void Feed()
     {
         hungerProgress -= 0.1f;
-        Debug.Log("Hunger Progress Decreased : " + hungerProgress);
         float rnd = Random.Range(0.15f, 0.25f);
         if(hungerProgress <= rnd || hungerProgress < 0){
             base.ChangeState(base.idleState);
@@ -124,7 +123,6 @@ public class AnimalBehaviour : AnimalStateMachine
     public override void Drink()
     {
         thirstProgress -= 0.01f;
-        Debug.Log("Drink Progress Decreased : " + thirstProgress);
         float rnd = Random.Range(0.5f, 0.15f);
         if(thirstProgress <= rnd || thirstProgress < 0){
             base.ChangeState(base.idleState);
@@ -133,6 +131,16 @@ public class AnimalBehaviour : AnimalStateMachine
     }
 
 
+    /// <summary>
+    /// This function is calling from MatingCallState and with sendMessage function. 
+    /// Therefore this function only can call from female animals.
+    /// </summary>
+    /// <param name="toMateFemale">self of female animal.</param>
+    public void ResponseToMatingCall(GameObject toMateFemale){
+        Debug.Log(gameObject.name + "  +++ " + toMateFemale.name);
+        
+    }
+
     #region ProgressCalculations
 
     private void AnimalClicked(int objectId){
@@ -140,6 +148,9 @@ public class AnimalBehaviour : AnimalStateMachine
             return;
         
         animalProgressInformation = new AnimalProgressInformation(){
+            animalName = gameObject.name,
+            animalGener = GenderOfAnimal.ToString(),
+            currentState = base.stateIdentifier.ToString(),
             hungerProgress = this.hungerProgress,
             thirstProgress = this.thirstProgress,
             mateProgress = this.mateProgress,
@@ -152,7 +163,10 @@ public class AnimalBehaviour : AnimalStateMachine
         tirednessMinutes++;
         mateMinutes++;
         thirstMinutes++;
-        hungerMinutes++;        
+        hungerMinutes++;    
+        mateMinutes *= mateMultiplier;    
+        thirstMinutes *= thirstMultiplier;
+        hungerMinutes *= hungerMultiplier;
         CalculateTirednessProgress();
         CalculateThirstProgress();
         CalculateMateProgress();

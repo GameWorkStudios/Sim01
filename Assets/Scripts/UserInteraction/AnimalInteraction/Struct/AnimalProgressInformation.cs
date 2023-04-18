@@ -1,7 +1,8 @@
  
 public struct AnimalProgressInformation{
-    // public string animalName;
-    // public string animalGener;
+    public string animalName;
+    public string animalGener;
+    public string currentState;
     public float hungerProgress;
     public float thirstProgress;
     public float mateProgress;

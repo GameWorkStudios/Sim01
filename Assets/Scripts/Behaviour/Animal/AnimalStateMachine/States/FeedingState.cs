@@ -39,10 +39,13 @@ public class FeedingState : State
                 this.toEatPlant.Consume();
                 this.animalStateMachine.Feed();            
                 elapsedTime = 0;
+                if(!this.toEatPlant.gameObject.activeInHierarchy){
+                    Debug.Log("Plant Finished!");
+                }
             }
             elapsedTime += Time.deltaTime;
         }else{
-
+            this.animalStateMachine.ChangeState(this.animalStateMachine.idleState); // TODO : we will change this.
         }
     }
 }

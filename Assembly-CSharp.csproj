@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Behaviour\Plant\PlantStateMachine\States\GrowingState.cs" />
      <Compile Include="Assets\Scripts\Utilities\GameAssets\Events\VoidEvent.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\States\IdleState.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\DataContainers\Enums\AnimalTypes.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Plant\PlantStateMachine\PlantStateMachineCaster.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Plant\PlantBehaviour.cs" />
      <Compile Include="Assets\Scripts\UserInteraction\AnimalInteraction\Struct\AnimalProgressInformation.cs" />
@@ -63,6 +64,7 @@
      <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\States\FeedingState.cs" />
      <Compile Include="Assets\Scripts\Environment\DayNightMachine\States\MorningState.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Plant\PlantStateMachine\States\BeingConsumedState.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\States\MatingCallState.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Plant\PlantStateMachine\States\GrownState.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalBehaviour.cs" />
      <Compile Include="Assets\Scripts\Initializer\PoolManager\Interface\IPoolOperation.cs" />
@@ -93,6 +95,7 @@
      <Compile Include="Assets\Scripts\Utilities\SingletonBase\MonoSingleton.cs" />
      <Compile Include="Assets\Scripts\Utilities\GameAssets\Events\IntEvent.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Plant\PlantStateMachine\States\SaplingState.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\Genes\Genes.cs" />
      <Compile Include="Assets\Scripts\Initializer\PoolManager\PoolManager.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\AnimalStateMachineCaster.cs" />
      <Compile Include="Assets\Scripts\CharacterMovement.cs" />
