@@ -20,7 +20,7 @@ public class MatingCallState : MoverState
 
     public override void StartState(StateMachine machine)
     {
-        Debug.LogWarning("MATING CALL STATE");
+        Debug.LogWarning(machine.gameObject.name + "MATING CALL STATE");
         base.tr = machine.transform;        
         this.animalStateMachine = machine.AnimalStateMachine();
         this.animalStateMachine.SetIdentifier(StateIdentifier.MATINGCALL);
@@ -58,7 +58,7 @@ public class MatingCallState : MoverState
     }
 
     private void MatingCall(){
-        Debug.LogWarning("MATING CALL!");
+        Debug.LogWarning(base.tr.name+" + MATING CALL!");
         if(elapsedTime >= matingCallDuration){
             Call();
         }
@@ -66,10 +66,10 @@ public class MatingCallState : MoverState
     }
 
     private void Call(){
+
         Collider[] getObjectsAround = Physics.OverlapSphere(this.tr.position, this.matingCallRadius, LayerMask.GetMask("Animal"));
         foreach(Collider unknownObject in getObjectsAround){
             if(unknownObject.GetComponent<Animal>()){
-                // This is an animal!
                 if(unknownObject.GetComponent<AnimalBehaviour>().GetAnimalSettings.AnimalType == this.animalStateMachine.GetAnimalSettings.AnimalType){ // Are we same type of animal ?
                     AnimalBehaviour sameTypeAnimal = unknownObject.GetComponent<AnimalBehaviour>();
                     if(sameTypeAnimal.GenderOfAnimal != this.animalStateMachine.GenderOfAnimal){ // Are we opposite gender ?

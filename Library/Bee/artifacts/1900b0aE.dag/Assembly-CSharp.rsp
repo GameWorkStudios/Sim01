@@ -358,6 +358,7 @@
 "Assets/Scripts/Behaviour/Animal/AnimalStateMachine/AnimalStateMachine.cs"
 "Assets/Scripts/Behaviour/Animal/AnimalStateMachine/AnimalStateMachineCaster.cs"
 "Assets/Scripts/Behaviour/Animal/AnimalStateMachine/States/ChasingState.cs"
+"Assets/Scripts/Behaviour/Animal/AnimalStateMachine/States/ClosingForMateState.cs"
 "Assets/Scripts/Behaviour/Animal/AnimalStateMachine/States/DrinkingState.cs"
 "Assets/Scripts/Behaviour/Animal/AnimalStateMachine/States/Enums/StateIdentifier.cs"
 "Assets/Scripts/Behaviour/Animal/AnimalStateMachine/States/FeedingState.cs"

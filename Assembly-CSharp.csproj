@@ -98,6 +98,7 @@
      <Compile Include="Assets\Scripts\Behaviour\Animal\Genes\Genes.cs" />
      <Compile Include="Assets\Scripts\Initializer\PoolManager\PoolManager.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\AnimalStateMachineCaster.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\Animal\AnimalStateMachine\States\ClosingForMateState.cs" />
      <Compile Include="Assets\Scripts\CharacterMovement.cs" />
      <Compile Include="Assets\Scripts\UserInteraction\AnimalInteraction\Animalnteraction.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -21,10 +21,11 @@ public class AnimalStateMachine : Animal
     public MateState mateState          = new MateState();
     public MatingState matingState      = new MatingState();
     public MatingCallState matingCallState = new MatingCallState(); // this state using only female animals.
+    public ClosingForMateState closingForMateState; // -> this state has a Constructor.
     #endregion States
 
     protected Transform tr;
-    protected StateIdentifier stateIdentifier;
+    [SerializeField] protected StateIdentifier stateIdentifier;
 
     #region Getters
     public Transform Tr{

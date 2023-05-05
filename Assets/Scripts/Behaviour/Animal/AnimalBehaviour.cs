@@ -134,12 +134,53 @@ public class AnimalBehaviour : AnimalStateMachine
     /// <summary>
     /// This function is calling from MatingCallState and with sendMessage function. 
     /// Therefore this function only can call from female animals.
+    /// if the male animal is not mate state then this function is not working.
+    /// else if this function is called then male state is changing to the ClosingForMateState 
+    /// with target mateCall position.
+    /// TODO : GameObject type of paremeter will change!
     /// </summary>
     /// <param name="toMateFemale">self of female animal.</param>
     public void ResponseToMatingCall(GameObject toMateFemale){
-        Debug.Log(gameObject.name + "  +++ " + toMateFemale.name);
-        
+        //if(base.stateIdentifier != StateIdentifier.MATE) return;
+
+        //toMateFemale.SendMessage("AcceptForMatingCall", gameObject); 
+        base.ChangeState(new ClosingForMateState(toMateFemale.GetComponent<AnimalBehaviour>(),toMateFemale.transform.position));        
     }
+
+    /// <summary>
+    /// This function is called from male animals for sending mating request.
+    /// If the mating criterias suitable then female trigger another function!
+    /// In addition if the criterias suitable then female state changes to the 
+    /// matingState!
+    /// </summary>
+    public void RequestForMatingCall(AnimalBehaviour male){
+        // TODO : Check here Gene classses.
+        base.ChangeState(base.matingState);
+        male.AcceptForMatingCall(this);
+    }
+
+    /// <summary>
+    /// This function called from female animals. 
+    /// When the this function is called then animals goes to the 
+    /// matingState!
+    /// </summary>
+    public void AcceptForMatingCall(AnimalBehaviour female){
+        base.ChangeState(base.matingState);
+        female.TransferGenes(base.genes); // Male tranfering genes here.
+    }
+
+    /// <summary>
+    /// This function is using from male animal to transfer genes itsef to the female animal.
+    /// In this function both side are MatingState.
+    /// </summary>
+    /// <param name="genes"></param>
+    public void TransferGenes(Genes maleGenes){
+        //Gene Posibilities process.
+        Debug.Log("POPULATE !");
+    }
+
+    
+
 
     #region ProgressCalculations
 
@@ -192,8 +233,8 @@ public class AnimalBehaviour : AnimalStateMachine
     private void CalculateMateProgress(){
         this.mateProgress = (mateMinutes/GetAnimalSettings.MatingPeriods);
         if(this.mateProgress >= 1f){
-            this.mateProgress = 0;
-            this.mateMinutes = 0;
+            this.mateProgress = 1f;
+            //this.mateMinutes = 0;
         }
     }
 

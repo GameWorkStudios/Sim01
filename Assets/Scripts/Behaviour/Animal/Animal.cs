@@ -7,20 +7,13 @@ public abstract class Animal : Entity
 
     protected Genes genes;
 
-    [SerializeField] private int geenderr = 2; // TODO : we will remove this variable!
+    [SerializeField] private bool useStaticGender = false;
+    [SerializeField] private Gender geenderr = Gender.UNDEFINED; // TODO : we will remove this variable!
 
     protected virtual void Start(){
         genes = new Genes();
-        /*DEBUG!*/
-        switch(genes.gender){
-            case Gender.Female:
-                geenderr = 0;
-            break;
-            case Gender.Male:
-                geenderr = 1;
-            break;
-        }
-        /*DEBUG!*/
+        if(useStaticGender)return;
+        this.geenderr = genes.gender;
     }
 
     #region Getters
@@ -32,6 +25,9 @@ public abstract class Animal : Entity
 
     public Gender GenderOfAnimal{
         get{
+            if(useStaticGender){
+                return this.geenderr;
+            }
             return this.genes.gender;
         }
     }

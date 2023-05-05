@@ -9,6 +9,16 @@ public class MateState : MoverState
     private AnimalStateMachine animalStateMachine;
     private AnimalBehaviour selectedPartner = null;
 
+    private GameObject toMateFemale;
+
+    public MateState(){
+
+    }
+
+    public MateState(GameObject toMateFemale){  // TODO : Muhtemelen değişecek! || Bu yapıcı fonksiyon iki cinste de çalışmalı. Eğer toMateFemale(isim değişsin) set edilmişse, yaklaşma işlemi çalışmalı.
+        this.toMateFemale = toMateFemale;
+    }
+
     public override void StartState(StateMachine machine)
     {
         Debug.LogWarning("MATE STATE");
@@ -53,15 +63,12 @@ public class MateState : MoverState
 
     private void FindPartner(){
         Collider[] objectsInRadius = Physics.OverlapSphere(this.tr.position, this.interactionRadius, LayerMask.GetMask("Animal"));
-        Debug.Log("objectsInRadius : " + objectsInRadius.Length);
         if(objectsInRadius.Length > 0){
             AnimalBehaviour selectedPartner = null;
             foreach(Collider objectInRadius in objectsInRadius){
                 if(objectInRadius.GetComponent<AnimalBehaviour>()){
                     AnimalBehaviour animal = objectInRadius.GetComponent<AnimalBehaviour>();
                     if(animal.GetAnimalSettings.AnimalType == AnimalTypes.RABBIT && this.animalStateMachine.GenderOfAnimal != animal.GenderOfAnimal){
-                        // TODO : Check here gene quality ?
-                        // TODO : What about partner's mate progress ?
                         selectedPartner = animal;
                         break;
                     }   
